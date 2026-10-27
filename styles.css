@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:  rgb(27, 27, 28);
+}
+
+main{
+    display: flex;
+}
+
+#myCanvas{
+    width: 1200px;
+    height: 650px;
+    border: 5px solid #dbd9d9;
+    margin-top: 80px;
+    margin-left: 20px;
+}
+
+.info-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 170px;
+    margin-left: 80px;
+    color: #dbd9d9;
+    font-family: sans-serif;
+    height: 300px;
+    width: 300px;
+    padding: 28px 24px;
+    border: 1px solid #dbd9d9;
+    border-radius: 16px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+.partidas{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #dbd9d9;
+    margin: 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #dbd9d9;
+
+}
+
+.partidas-jugadores, .entradas-jugadores{
+    display: flex;
+    gap: 10px;
+    font-size: 17px;
+}
+
+span{
+    font-weight: bolder;
+}
+
+button{
+    margin-top: auto;
+    padding: 12px 0;
+    width: 100%;
+    background-color: transparent;
+    color: #dbd9d9;
+    border: 1px solid #444;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    transition: backgroung-color 0.2s ease, border-color 0.2s ease;
+
+    &:hover{
+        background-color: #1e1e1f;
+        border-color: #666;
+        color: #dbd9d9;
+    }
+
+    &:active{
+        background-color: #1e1e1f;
+    }
+}
