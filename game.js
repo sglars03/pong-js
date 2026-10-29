@@ -10,20 +10,22 @@ const teclas = {
 
 const teclaPresionada = document.addEventListener("keydown", (e)=>{
 
-    if (e.key in teclas){
-        teclas[e.key] = true;
-        console.log(e.key);
-        console.log(teclas)
+    const tecla = e.key.length === 1 ? e.key.toLocaleLowerCase() :e.key;
+
+    if (tecla in teclas){
+        e.preventDefault(); 
+        teclas[tecla] = true;
     }
     
 })
 
 const teclaSoltada = document.addEventListener("keyup", (e)=>{
 
-    if (e.key in teclas){
-        teclas[e.key] = false;
-        console.log(e.key);
-        console.log(teclas)
+    const tecla = e.key.length === 1 ? e.key.toLocaleLowerCase() :e.key;
+
+    if (tecla in teclas){
+        e.preventDefault(); 
+        teclas[tecla] = false;
     }
     
 })
@@ -77,6 +79,8 @@ function dibujarPelota(){
 }
 
 function moverPaletas() {
+
+    
 
     if (teclas["w"]) {
         paletaIzq.y -= PALETA.velocidad;
