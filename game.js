@@ -41,27 +41,37 @@ const PALETA = {
     color: "#ffffff"
 };
 
-const PELOTA = {
-    radio: 20,
-    velocidadX: 5,
-    velocidadY: 5,
-    color: "#ffffff"
-}
+const paletaIzq = {
+    x: PALETA.margen,
+    y: canvas.height / 2 - PALETA.alto / 2,
+
+};
+
+const paletaDer = {
+    x: canvas.width - PALETA.margen - PALETA.ancho,
+    y: canvas.height / 2 - PALETA.alto / 2,
+
+
+
+};
 
 const pelota = {
     x: canvas.width / 2,
     y: canvas.height / 2
 }
 
-const paletaIzq = {
-    x: PALETA.margen,
-    y: canvas.height / 2 - PALETA.alto / 2
-};
+const PELOTA = {
+    radio: 20,
+    velocidadX: 10,
+    velocidadY: 10,
+    color: "#ffffff",
 
-const paletaDer = {
-    x: canvas.width - PALETA.margen - PALETA.ancho,
-    y: canvas.height / 2 - PALETA.alto / 2
-};
+
+}
+
+
+
+
 
 
 function dibujarPaletas(){          
@@ -125,9 +135,28 @@ function moverPelota(){
         PELOTA.velocidadY = -PELOTA.velocidadY;
     }
 
-    if (paletaDer.x + PELOTA.radio - pelota.x <= 0 && y0Der <= pelota.y + PELOTA.radio && y1Der >= pelota.y + PELOTA.radio  || pelota.x + PELOTA.radio - paletaIzq.x <= 0 && y0Izq <= pelota.y + PELOTA.radio && y1Izq >= pelota.y + PELOTA.radio ){
-        PELOTA.velocidadX = -PELOTA.velocidadX
-    }
+    // if (paletaDer.x + PELOTA.radio - pelota.x <= 0 && y0Der <= pelota.y + PELOTA.radio && y1Der >= pelota.y + PELOTA.radio  || pelota.x + PELOTA.radio - paletaIzq.x <= 0 && y0Izq <= pelota.y + PELOTA.radio && y1Izq >= pelota.y + PELOTA.radio ){
+    //     PELOTA.velocidadX = -PELOTA.velocidadX
+    // }
+
+    if (pelota.x + PELOTA.radio >= paletaDer.x && 
+        pelota.x - PELOTA.radio <= paletaDer.x + PALETA.ancho && 
+        pelota.y + PELOTA.radio >= paletaDer.y && 
+        pelota.y - PELOTA.radio <= paletaDer.y + PALETA.alto){
+
+            pelota.x = paletaDer.x - PELOTA.radio;
+            PELOTA.velocidadX = -PELOTA.velocidadX
+        };
+
+    if (pelota.x - PELOTA.radio <= paletaIzq.x + PALETA.ancho && 
+        pelota.x + PELOTA.radio >= paletaIzq.x && 
+        pelota.y + PELOTA.radio >= paletaIzq.y && 
+        pelota.y - PELOTA.radio <= paletaIzq.y + PALETA.alto){
+
+            pelota.x = paletaIzq.x + PALETA.ancho + PELOTA.radio;
+            PELOTA.velocidadX = -PELOTA.velocidadX;
+        };
+
 
     
 
