@@ -110,11 +110,36 @@ function moverPaletas() {
 
 }
 
+function moverPelota(){
+
+    let y0Der = paletaDer.y;
+    let y1Der = paletaDer.y + PALETA.alto;
+
+    let y0Izq = paletaIzq.y;
+    let y1Izq = paletaIzq.y + PALETA.alto;
+    
+    pelota.x += PELOTA.velocidadX;
+    pelota.y += PELOTA.velocidadY;
+
+    if (pelota.y - PELOTA.radio <= 0 || pelota.y + PELOTA.radio >= canvas.height){
+        PELOTA.velocidadY = -PELOTA.velocidadY;
+    }
+
+    if (paletaDer.x + PELOTA.radio - pelota.x <= 0 && y0Der <= pelota.y + PELOTA.radio && y1Der >= pelota.y + PELOTA.radio  || pelota.x + PELOTA.radio - paletaIzq.x <= 0 && y0Izq <= pelota.y + PELOTA.radio && y1Izq >= pelota.y + PELOTA.radio ){
+        PELOTA.velocidadX = -PELOTA.velocidadX
+    }
+
+    
+
+}
+
+
 
 function dibujar (){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     moverPaletas();
-    dibujarPaletas();             
+    moverPelota();
+    dibujarPaletas();           
     dibujarPelota();  
     requestAnimationFrame(dibujar);
 }
