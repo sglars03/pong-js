@@ -8,40 +8,68 @@
 </head>
 <body>
 
+
+
+
     <main>
 
-        <canvas id = "myCanvas"></canvas>
+        <div class = "game-menu">
+            <h1 class = "game-title">
+                PONG <span class = "spam-title">by ale</span>
+            </h1>
 
-        <div class = "info-container">
+            <h3>Ingrese el nombre de los jugadores</h3>
 
 
-            <h2 class = "partidas">Partidas ganadas</h2>
+            <div class = "labels">
 
-            <div class = "partidas-jugadores">
+                <label>
+                    JUGADOR 1
+                    <input type="text" id = "jugador-1-name">
+                </label>
 
-                <div class = "jugador_1_partidas">Jugador 1: <span>15</span></div>
-                <div class = "jugador_2_partidads">Jugador 2: <span>15</span></div>
+                <label>
+                    JUGADOR 2
+                    <input type="text" id = "jugador-2-name">
+                </label>
+
             </div>
 
-            <h2 class = "partidas">Goles</h2>
-            <div class = "entradas-jugadores">
-                <div class = "jugador_1_entradas">Jugador 1: <span>15</span></div>
-                <div class = "jugador_2_entradas">Jugador 2: <span>15</span></div>
-            </div>
 
-            <button class = "pausar">PAUSAR</button>
-
-
-
+            <button class = "start-button">Iniciar</button>
 
 
 
 
         </div>
 
+        <div class = 'game'>
+            <canvas id = "myCanvas"></canvas>
+
+            <div class = "info-container">
+
+                <h2 class = "partidas">Partidas ganadas</h2>
+
+                <div class = "partidas-jugadores">
+
+                    <div class = "jugador_1_partidas">Jugador 1: <span>15</span></div>
+                    <div class = "jugador_2_partidads">Jugador 2: <span>15</span></div>
+                </div>
+
+                <h2 class = "partidas">Goles</h2>
+                <div class = "entradas-jugadores">
+                    <div class = "jugador_1_entradas">Jugador 1: <span>15</span></div>
+                    <div class = "jugador_2_entradas">Jugador 2: <span>15</span></div>
+                </div>
+
+            <button class = "pausar">PAUSAR</button>
+
+        </div>
+
+        
 
 
-
+        </div>
 
     </main>
 

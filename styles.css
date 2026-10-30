@@ -1,28 +1,140 @@
-body{
+
+
+body {
     margin: 0;
     padding: 0;
-    background-color:  rgb(27, 27, 28);
+    background-color: rgb(27, 27, 28);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-main{
+/* GAME MENU  */
+
+.game-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 40px;
+}
+
+.game-menu h1 {
+    color: #dbd9d9;
+    font-size: clamp(70px, 12vw, 120px);
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 3.5px;
+    margin: 0;
+    line-height: 1;
+    text-align: center;
+}
+
+.game-menu h1 span {
+    display: block;
+    font-family: sans-serif;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    font-weight: normal;
+    margin-top: 8px;
+}
+
+.game-menu h3 {
+    color: #dbd9d9;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0;
+    text-align: center;
+}
+
+.game-menu .labels {
+    color: #dbd9d9;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: bolder;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.game-menu .labels label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+.game-menu .labels input {
+    background-color: transparent;
+    border: 1.5px solid #dbd9d9;
+    border-radius: 20px;
+    padding: 14px 24px;
+    color: #dbd9d9;
+    font-family: inherit;
+    font-size: 16px;
+    width: 280px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.game-menu .labels input:focus {
+    border-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(219, 217, 217, 0.15);
+}
+
+/* BOTÓN INICIAR */
+.start-button {
+    margin-top: 10px;
+    padding: 16px 60px;
+    background-color: transparent;
+    color: #dbd9d9;
+    border: 1.5px solid #dbd9d9;
+    border-radius: 30px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+.start-button:hover {
+    background-color: #dbd9d9;
+    color: rgb(27, 27, 28);
+}
+
+.start-button:active {
+    transform: scale(0.97);
+}
+
+/* GAME STYLES  */
+
+.game {
+    display: none;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px;
+}
+
+.game.active {
     display: flex;
 }
 
-#myCanvas{
-    width: 1200px;
-    height: 650px;
+#myCanvas {
     border: 5px solid #dbd9d9;
-    margin-top: 80px;
-    margin-left: 20px;
+    border-radius: 12px;
+    display: block;
+    max-width: 100%;
 }
 
-.info-container{
+.info-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    margin-top: 170px;
-    margin-left: 80px;
     color: #dbd9d9;
     font-family: sans-serif;
     height: 300px;
@@ -30,11 +142,10 @@ main{
     padding: 28px 24px;
     border: 1px solid #dbd9d9;
     border-radius: 16px;
-    box-sizing: border-box;
     gap: 20px;
 }
 
-.partidas{
+.partidas {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 20px;
     font-weight: bolder;
@@ -44,20 +155,20 @@ main{
     margin: 0;
     padding-bottom: 6px;
     border-bottom: 1px solid #dbd9d9;
-
 }
 
-.partidas-jugadores, .entradas-jugadores{
+.partidas-jugadores,
+.entradas-jugadores {
     display: flex;
     gap: 10px;
     font-size: 17px;
 }
 
-span{
+span {
     font-weight: bolder;
 }
 
-button{
+.pausar {
     margin-top: auto;
     padding: 12px 0;
     width: 100%;
@@ -69,15 +180,14 @@ button{
     font-size: 15px;
     letter-spacing: 1.5px;
     cursor: pointer;
-    transition: backgroung-color 0.2s ease, border-color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
 
-    &:hover{
-        background-color: #1e1e1f;
-        border-color: #666;
-        color: #dbd9d9;
-    }
+.pausar:hover {
+    background-color: #1e1e1f;
+    border-color: #666;
+}
 
-    &:active{
-        background-color: #1e1e1f;
-    }
+.pausar:active {
+    background-color: #1e1e1f;
 }

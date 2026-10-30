@@ -1,5 +1,25 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
+const iniciarButton = document.querySelector(".start-button");
+const gameMenu = document.querySelector(".game-menu");
+const game = document.querySelector(".game");
+const jugador1 = document.getElementById("jugador-1-name");
+const jugador2 = document.getElementById("jugador-2-name");
+
+
+
+let juegoActivo = false;
+
+iniciarButton.onclick = ()=>{
+
+    let jugador1Name = jugador1.value.trim();
+    let jugador2Name = jugador2.value.trim();
+
+    juegoActivo = true;
+
+    gameMenu.style.display = "none";
+    game.style.display = "flex";
+}
 
 const teclas = {
     w: false,
@@ -62,8 +82,8 @@ const pelota = {
 
 const PELOTA = {
     radio: 20,
-    velocidadX: 10,
-    velocidadY: 10,
+    velocidadX: 4,
+    velocidadY: 4,
     color: "#ffffff",
 
 
@@ -135,10 +155,6 @@ function moverPelota(){
         PELOTA.velocidadY = -PELOTA.velocidadY;
     }
 
-    // if (paletaDer.x + PELOTA.radio - pelota.x <= 0 && y0Der <= pelota.y + PELOTA.radio && y1Der >= pelota.y + PELOTA.radio  || pelota.x + PELOTA.radio - paletaIzq.x <= 0 && y0Izq <= pelota.y + PELOTA.radio && y1Izq >= pelota.y + PELOTA.radio ){
-    //     PELOTA.velocidadX = -PELOTA.velocidadX
-    // }
-
     if (pelota.x + PELOTA.radio >= paletaDer.x && 
         pelota.x - PELOTA.radio <= paletaDer.x + PALETA.ancho && 
         pelota.y + PELOTA.radio >= paletaDer.y && 
@@ -166,8 +182,12 @@ function moverPelota(){
 
 function dibujar (){
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    moverPaletas();
-    moverPelota();
+
+    if (juegoActivo){
+        moverPaletas();
+        moverPelota();
+    }
+
     dibujarPaletas();           
     dibujarPelota();  
     requestAnimationFrame(dibujar);
