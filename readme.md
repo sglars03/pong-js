@@ -17,15 +17,6 @@ Mi objetivo es construir una version jugable con dos paletas (simulando a dos po
 - R: Reiniciar.
 
 
-## Lista de tareas 
-
-- [ ] Crear la estructura del proyecto.
-- [ ] Dibujar la cancha. usando canva
-- [ ] Dibujar las paletas, la pelota y el marcador.
-- [ ] Implementar el movimiento y los controles.
-- [ ] Implementar las colisiones.
-- [ ] Añadir puntos y estados de la partida.
-- [ ] Probar el juego.
-
-
-\:D/ 
+## Audio 
+The Whole Other - 8-Bit Dreamscape ♫ NO COPYRIGHT 8-bit Music
+Link: https://youtu.be/KvDcTXEfdVs?si=spZDoobnnK7Pw97m

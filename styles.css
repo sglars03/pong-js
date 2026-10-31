@@ -1,19 +1,60 @@
+:root {
+    /* Colores */
+    --color-fondo: #1b1b1c;
+    --color-panel: #1e1e1f;
+    --color-texto: #dbd9d9;
+    --color-blanco: #ffffff;
+    --color-borde: #3a3a3c;
+    --color-borde-control: #444444;
+    --color-fondo-control: #2a2a2c;
+    --color-alerta: rgb(215, 70, 53);
 
+    /* Tipografía */
+    --fuente-principal: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    --fuente-secundaria: sans-serif;
+    --fuente-teclas: monospace;
 
-body {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(27, 27, 28);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Medidas*/
+    --radio-panel: 20px;
+    --radio-elemento: 10px;
+    --sombra-panel: 0 10px 30px rgba(0, 0, 0, 0.5);
+    --transicion-rapida: 0.2s ease;
+    --transicion-normal: 0.3s ease;
 }
 
-/* GAME MENU  */
+* {
+    box-sizing: border-box;
+}
 
-.game-menu {
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--color-fondo);
+    font-family: var(--fuente-principal);
+}
+
+/* Icono de música */
+#icono-musica {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    color: var(--color-texto);
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform var(--transicion-rapida);
+}
+
+#icono-musica:hover {
+    transform: scale(1.2);
+}
+
+/* Menú inicial */
+.menu-juego {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -21,173 +62,263 @@ body {
     padding: 40px;
 }
 
-.game-menu h1 {
-    color: #dbd9d9;
-    font-size: clamp(70px, 12vw, 120px);
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    letter-spacing: 3.5px;
+.titulo-juego {
     margin: 0;
+    color: var(--color-texto);
+    font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+    font-size: clamp(70px, 12vw, 120px);
+    letter-spacing: 3.5px;
     line-height: 1;
     text-align: center;
 }
 
-.game-menu h1 span {
+.subtitulo-titulo {
     display: block;
-    font-family: sans-serif;
-    font-size: 16px;
-    letter-spacing: 1.5px;
-    font-weight: normal;
     margin-top: 8px;
+    font-family: var(--fuente-secundaria);
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 1.5px;
 }
 
-.game-menu h3 {
-    color: #dbd9d9;
+.menu-juego h2 {
+    margin: 0;
+    color: var(--color-texto);
     font-size: 22px;
     font-weight: 500;
-    margin: 0;
     text-align: center;
 }
 
-.game-menu .labels {
-    color: #dbd9d9;
+.campos-jugadores {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-weight: bolder;
+    color: var(--color-texto);
     font-size: 14px;
+    font-weight: 700;
     letter-spacing: 1px;
 }
 
-.game-menu .labels label {
+.campos-jugadores label {
     display: flex;
     flex-direction: column;
-    gap: 8px;
     align-items: flex-start;
+    gap: 8px;
 }
 
-.game-menu .labels input {
-    background-color: transparent;
-    border: 1.5px solid #dbd9d9;
-    border-radius: 20px;
+.campos-jugadores input {
+    width: 280px;
     padding: 14px 24px;
-    color: #dbd9d9;
+    border: 1.5px solid var(--color-texto);
+    border-radius: 20px;
+    outline: none;
+    background-color: transparent;
+    color: var(--color-texto);
     font-family: inherit;
     font-size: 16px;
-    width: 280px;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--transicion-rapida), box-shadow var(--transicion-rapida);
 }
 
-.game-menu .labels input:focus {
-    border-color: #ffffff;
+.campos-jugadores input:focus {
+    border-color: var(--color-blanco);
     box-shadow: 0 0 0 3px rgba(219, 217, 217, 0.15);
 }
 
-/* BOTÓN INICIAR */
-.start-button {
+.boton-iniciar {
     margin-top: 10px;
     padding: 16px 60px;
-    background-color: transparent;
-    color: #dbd9d9;
-    border: 1.5px solid #dbd9d9;
+    border: 1.5px solid var(--color-texto);
     border-radius: 30px;
+    background-color: transparent;
+    color: var(--color-texto);
     font-family: inherit;
     font-size: 16px;
-    font-weight: bolder;
+    font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
     transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
 }
 
-.start-button:hover {
-    background-color: #dbd9d9;
-    color: rgb(27, 27, 28);
+.boton-iniciar:hover {
+    background-color: var(--color-texto);
+    color: var(--color-fondo);
 }
 
-.start-button:active {
+.boton-iniciar:active {
     transform: scale(0.97);
 }
 
-/* GAME STYLES  */
-
-.game {
+/* Área principal del juego */
+.pantalla-juego {
     display: none;
     align-items: flex-start;
     justify-content: center;
-    gap: 60px;
+    gap: 40px;
     padding: 40px;
 }
 
-.game.active {
+.pantalla-juego.activa {
     display: flex;
 }
 
 #myCanvas {
-    border: 5px solid #dbd9d9;
-    border-radius: 12px;
     display: block;
     max-width: 100%;
+    border: 5px solid var(--color-texto);
+    border-radius: 12px;
+    box-shadow: var(--sombra-panel);
 }
 
-.info-container {
+#myCanvasMenu {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    border: none;
+}
+
+/* Panel lateral */
+.panel-informacion {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    color: #dbd9d9;
-    font-family: sans-serif;
-    height: 300px;
-    width: 300px;
-    padding: 28px 24px;
-    border: 1px solid #dbd9d9;
-    border-radius: 16px;
-    gap: 20px;
+    justify-content: space-between;
+    width: 320px;
+    height: 400px;
+    margin-top: 15px;
+    padding: 30px 25px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background-color: var(--color-panel);
+    color: var(--color-texto);
+    box-shadow: var(--sombra-panel);
 }
 
-.partidas {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
-    font-weight: bolder;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #dbd9d9;
-    margin: 0;
-    padding-bottom: 6px;
-    border-bottom: 1px solid #dbd9d9;
-}
-
-.partidas-jugadores,
-.entradas-jugadores {
+.seccion-marcador {
     display: flex;
+    flex-direction: column;
     gap: 10px;
-    font-size: 17px;
-}
-
-span {
-    font-weight: bolder;
-}
-
-.pausar {
-    margin-top: auto;
-    padding: 12px 0;
     width: 100%;
+}
+
+.titulo-marcador {
+    margin: 0 0 10px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--color-borde);
+    color: var(--color-blanco);
+    font-family: var(--fuente-secundaria);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.titulo-goles {
+    margin-top: 20px;
+}
+
+.fila-marcador {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-radius: var(--radio-elemento);
+    background-color: rgba(255, 255, 255, 0.05);
+    font-size: 16px;
+    transition: background-color var(--transicion-rapida);
+}
+
+.fila-marcador:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nombre-jugador {
+    overflow: hidden;
+    max-width: 180px;
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.valor-marcador {
+    min-width: 30px;
+    padding: 2px 12px;
+    border-radius: 8px;
+    background-color: var(--color-borde);
+    color: var(--color-blanco);
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* Botón de pausa */
+.boton-pausar {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px 0;
+    border: 1.5px solid var(--color-texto);
+    border-radius: 12px;
     background-color: transparent;
-    color: #dbd9d9;
-    border: 1px solid #444;
-    border-radius: 10px;
+    color: var(--color-texto);
     font-family: inherit;
     font-size: 15px;
-    letter-spacing: 1.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
     cursor: pointer;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    transition: all var(--transicion-normal);
 }
 
-.pausar:hover {
-    background-color: #1e1e1f;
-    border-color: #666;
+.boton-pausar:hover {
+    transform: translateY(-2px);
+    background-color: var(--color-texto);
+    color: var(--color-panel);
 }
 
-.pausar:active {
-    background-color: #1e1e1f;
+.boton-pausar:active {
+    transform: translateY(0);
+}
+
+/* Indicaciones de teclado */
+.panel-controles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-top: 15px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.fila-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-texto);
+    font-size: 14px;
+}
+
+.nombre-control {
+    overflow: hidden;
+    max-width: 120px;
+    margin: 0;
+    color: var(--color-blanco);
+    font-size: 15px;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.teclas-jugador {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid var(--color-borde-control);
+    border-radius: 6px;
+    background-color: var(--color-fondo-control);
+    color: var(--color-blanco);
+    font-family: var(--fuente-teclas);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }

@@ -1,88 +1,103 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Juego clásico de Pong para dos jugadores.">
     <title>Pong</title>
-    <link rel = "stylesheet" href = "styles.css">
+
+    <link rel="stylesheet" href="styles.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
 </head>
 <body>
-
-
-
-
     <main>
+        <i id="icono-musica" class="fa-solid fa-music" aria-label="Activar o desactivar música"></i>
 
-        <div class = "game-menu">
-            <h1 class = "game-title">
-                PONG <span class = "spam-title">by ale</span>
+        <section class="menu-juego">
+            <canvas id="myCanvasMenu" aria-hidden="true"></canvas>
+
+            <h1 class="titulo-juego">
+                PONG
+                <span class="subtitulo-titulo">by ale</span>
             </h1>
 
-            <h3>Ingrese el nombre de los jugadores</h3>
+            <h2>Ingrese el nombre de los jugadores</h2>
 
-
-            <div class = "labels">
-
-                <label>
+            <div class="campos-jugadores">
+                <label for="jugador-1-name">
                     JUGADOR 1
-                    <input type="text" id = "jugador-1-name">
+                    <input required type="text" id="jugador-1-name" autocomplete="off">
                 </label>
 
-                <label>
+                <label for="jugador-2-name">
                     JUGADOR 2
-                    <input type="text" id = "jugador-2-name">
+                    <input required type="text" id="jugador-2-name" autocomplete="off">
                 </label>
-
             </div>
 
+            <button class="boton-iniciar" type="button">Iniciar</button>
+        </section>
 
-            <button class = "start-button">Iniciar</button>
+        <section class="pantalla-juego" aria-label="Partida de Pong">
+            <canvas id="myCanvas" aria-label="Área de juego de Pong"></canvas>
 
+            <aside class="panel-informacion">
+                <section class="seccion-marcador">
+                    <h2 class="titulo-marcador">Partidas ganadas</h2>
 
+                    <div class="fila-marcador">
+                        <span class="nombre-jugador">
+                            <span class="jugador-1-nombre">Jugador 1</span>
+                        </span>
+                        <span class="valor-marcador num-partidas-1">0</span>
+                    </div>
 
+                    <div class="fila-marcador">
+                        <span class="nombre-jugador">
+                            <span class="jugador-2-nombre">Jugador 2</span>
+                        </span>
+                        <span class="valor-marcador num-partidas-2">0</span>
+                    </div>
+                </section>
 
-        </div>
+                <section class="seccion-marcador">
+                    <h2 class="titulo-marcador titulo-goles">Goles</h2>
 
-        <div class = 'game'>
-            <canvas id = "myCanvas"></canvas>
+                    <div class="fila-marcador">
+                        <span class="nombre-jugador">
+                            <span class="jugador-1-nombre">Jugador 1</span>
+                        </span>
+                        <span class="valor-marcador num-goles-1">0</span>
+                    </div>
 
-            <div class = "info-container">
+                    <div class="fila-marcador">
+                        <span class="nombre-jugador">
+                            <span class="jugador-2-nombre">Jugador 2</span>
+                        </span>
+                        <span class="valor-marcador num-goles-2">0</span>
+                    </div>
+                </section>
 
-                <h2 class = "partidas">Partidas ganadas</h2>
+                <button class="boton-pausar" type="button">PAUSAR</button>
 
-                <div class = "partidas-jugadores">
+                <section class="panel-controles" aria-label="Controles de los jugadores">
+                    <div class="fila-control">
+                        <h3 class="nombre-control controles-jug-1">Jugador 1</h3>
+                        <span class="teclas-jugador teclas-jugador-1">W / S</span>
+                    </div>
 
-                    <div class = "jugador_1_partidas">Jugador 1: <span>15</span></div>
-                    <div class = "jugador_2_partidads">Jugador 2: <span>15</span></div>
-                </div>
-
-                <h2 class = "partidas">Goles</h2>
-                <div class = "entradas-jugadores">
-                    <div class = "jugador_1_entradas">Jugador 1: <span>15</span></div>
-                    <div class = "jugador_2_entradas">Jugador 2: <span>15</span></div>
-                </div>
-
-            <button class = "pausar">PAUSAR</button>
-
-        </div>
-
-        
-
-
-        </div>
-
+                    <div class="fila-control">
+                        <h3 class="nombre-control controles-jug-2">Jugador 2</h3>
+                        <span class="teclas-jugador teclas-jugador-2">↑ / ↓</span>
+                    </div>
+                </section>
+            </aside>
+        </section>
     </main>
 
-
-
-
-
-
-
-
-
-    <script src = "game.js"></script>
-
-    
+    <script src="game.js"></script>
 </body>
 </html>
